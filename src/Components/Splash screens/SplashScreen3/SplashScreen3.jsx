@@ -6,11 +6,7 @@ const SplashScreen3 = () => {
   return (
     <div className="SplashScreen3-div">
       <figure>
-        <img
-          src="./ImagesWebp/People logo1.Webp"
-          alt="People logo"
-          loading="lazy"
-        />
+        <img src="./Images/People logo1.png" alt="People logo" loading="lazy" />
       </figure>
       <div>
         <h1>How UniVoice Works</h1>
