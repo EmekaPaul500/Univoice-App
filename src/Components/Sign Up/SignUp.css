@@ -1,0 +1,76 @@
+.sign-up-main {
+  /* margin: 0 auto;
+  width: 90%; */
+  padding-block: 1rem;
+}
+
+.sign-up-arrow-left-btn {
+  background: transparent;
+  border: 0;
+  margin-bottom: 2.3rem;
+}
+
+.sign-up-section {
+  text-align: center;
+}
+
+.sign-up-section h3 {
+  font-size: clamp(1.2rem, 5vw, 3rem);
+  margin: 1rem 0;
+}
+
+.sign-up-input-div {
+  position: relative;
+  margin: 1rem 0;
+}
+
+.sign-up-input-div small {
+  position: absolute;
+  left: 0;
+  top: 60px;
+  color: red;
+}
+
+.sign-up-input-div input {
+  width: 90%;
+  padding: 0.75rem;
+  margin: 0.6rem 0;
+  color: #a1a1a1;
+  border: 2px solid #008080;
+  border-radius: 24px;
+}
+
+.sign-up-input-div input:focus {
+  border: 2px solid #008080;
+  outline: 0;
+}
+
+.sign-up-last-div {
+  text-align: center;
+  display: flex;
+  gap: 0.5em;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.sign-up-last-div h5 {
+  font-weight: bold;
+  color: #000;
+}
+.sign-up-last-div a {
+  text-decoration: none;
+  color: #008080;
+  font-weight: bold;
+}
+
+.sign-up-btn {
+  padding: 1rem 2rem;
+  border-radius: 24px;
+  border: 0;
+  background-color: #ff5722;
+  color: #ffffff;
+  font-weight: 700;
+  margin-top: 0.5rem;
+  width: 50%;
+}

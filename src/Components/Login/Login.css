@@ -1,0 +1,89 @@
+.login-main {
+  /* margin: 0 auto;
+  width: 90%; */
+  padding-block: 1rem;
+}
+
+.login-arrow-left-btn {
+  background: transparent;
+  border: 0;
+  margin-bottom: 2.3rem;
+}
+
+.login-section {
+  text-align: center;
+}
+
+.login-input-div {
+  position: relative;
+  margin: 1rem 0;
+}
+
+.login-wrong-username {
+  position: absolute;
+  left: 0;
+  top: 60px;
+  color: red;
+}
+
+.login-main input {
+  width: 90%;
+  padding: 0.75rem;
+  margin: 0.6rem 0;
+  color: #a1a1a1;
+  border: 2px solid #008080;
+  border-radius: 24px;
+}
+
+.login-main input:focus {
+  border: 2px solid #008080;
+  outline: 0;
+}
+
+.login-password-div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.login-password-div small {
+  color: red;
+}
+
+.login-password-div a {
+  display: block;
+  margin-left: auto;
+  color: #ff5722;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.login-btn {
+  padding: 1rem 2rem;
+  border-radius: 24px;
+  border: 0;
+  background-color: #ff5722;
+  color: #ffffff;
+  font-weight: 700;
+  margin-top: 0.5rem;
+  width: 50%;
+}
+
+.login-last-div {
+  text-align: center;
+  display: flex;
+  gap: 0.5em;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.login-last-div h5 {
+  font-weight: bold;
+  color: #000;
+}
+
+.login-last-div a {
+  text-decoration: none;
+  color: #008080;
+  font-weight: bold;
+}
