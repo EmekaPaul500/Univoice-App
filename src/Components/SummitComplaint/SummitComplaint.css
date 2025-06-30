@@ -1,0 +1,69 @@
+.summit-complaint-main {
+  padding-block: 1rem;
+}
+
+.summit-complaint-first-sec {
+  position: static;
+  width: 90%;
+}
+
+.summit-complaint-first-sec > div {
+  display: flex;
+  justify-content: space-between;
+  padding-block: 1rem;
+}
+
+.summit-complaint-first-sec-user {
+  width: 50px;
+}
+
+.summit-complaint-first-sec h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.summit-complaint-second-sec {
+  display: flex;
+  gap: 0.6rem;
+  flex-direction: column;
+}
+
+.summit-complaint-main input {
+  display: block;
+  border-radius: 4px;
+  border: 1px solid #cccccc;
+  padding: 1rem;
+  background-color: #e0e0e0;
+  width: 90%;
+  margin-top: 1rem;
+}
+
+.summit-complaint-main select {
+  display: block;
+  border-radius: 4px;
+  border: 1px solid #cccccc;
+  padding: 1rem;
+  background-color: #e0e0e0;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.summit-complaint-main textarea {
+  display: block;
+  border-radius: 4px;
+  border: 1px solid #cccccc;
+  padding: 1rem;
+  background-color: #e0e0e0;
+  width: 90%;
+  margin-top: 1rem;
+  max-width: 398px;
+  min-height: 207px;
+}
+
+.summit-complaint-main textarea :focus {
+  border: 0;
+  outline: 0;
+}
+
+.summit-complaint-main button {
+}

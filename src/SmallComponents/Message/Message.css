@@ -1,0 +1,29 @@
+.message-div {
+  display: flex;
+  gap: 0.5em;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 500;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-width: 400px;
+  z-index: 1;
+}
+
+.message-div img {
+  width: 24px;
+  height: 24px;
+}
+
+.message-div-check {
+  background-color: #4caf50;
+}
+
+.message-div-cancel {
+  background-color: #f44336;
+}

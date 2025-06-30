@@ -4,14 +4,9 @@
   padding-block: 1rem;
 }
 
-.sign-up-arrow-left-btn {
-  background: transparent;
-  border: 0;
-  margin-bottom: 2.3rem;
-}
-
 .sign-up-section {
   text-align: center;
+  padding-block: 2rem;
 }
 
 .sign-up-section h3 {
@@ -33,16 +28,46 @@
 
 .sign-up-input-div input {
   width: 90%;
-  padding: 0.75rem;
+  padding: 0.75rem 1rem;
   margin: 0.6rem 0;
-  color: #a1a1a1;
+  border: 2px solid #008080;
+  border-radius: 24px;
+}
+.sign-up-input-div select {
+  width: 100%;
+  padding: 0.75rem;
+  /* padding: 3rem; */
+  margin: 0.6rem 0;
+  color: #404040;
   border: 2px solid #008080;
   border-radius: 24px;
 }
 
-.sign-up-input-div input:focus {
+.sign-up-input-div input:focus,
+.sign-up-input-div select {
   border: 2px solid #008080;
   outline: 0;
+}
+
+.sign-up-input-div-password {
+  position: relative;
+}
+
+.sign-up-input-div-password input {
+  width: 80%;
+  padding: 0.75rem 2.5rem 0.75rem 1rem;
+  margin: 0.6rem 0;
+  border: 2px solid #008080;
+  border-radius: 24px;
+}
+
+.sign-up-input-div-password button {
+  position: absolute;
+  top: 20px;
+  right: 0;
+  background: transparent;
+  border: 0;
+  margin: 0 1rem;
 }
 
 .sign-up-last-div {
@@ -71,6 +96,6 @@
   background-color: #ff5722;
   color: #ffffff;
   font-weight: 700;
-  margin-top: 0.5rem;
+  margin-top: 3.5rem;
   width: 50%;
 }

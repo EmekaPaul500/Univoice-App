@@ -1,29 +1,46 @@
 import "./SplashScreen1.css";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 const SplashScreen1 = () => {
   const navigate = useNavigate();
 
+  const [startExit, setStartExit] = useState(false);
+
   useEffect(() => {
     const timer = setTimeout(() => {
-      navigate("/SplashScreen2");
-    }, 5000);
+      setStartExit(true);
+    }, 3000);
 
     return () => clearTimeout(timer);
-  }, [navigate]);
+  }, []);
+
+  useEffect(() => {
+    if (startExit) {
+      const navTimer = setTimeout(() => {
+        navigate("/splashScreen2");
+      }, 5000); // must match exit transition duration
+
+      return () => clearTimeout(navTimer);
+    }
+  }, [startExit, navigate]);
+
   return (
-    <motion.div
-      initial={{ x: 0, opacity: 1 }}
-      exit={{ x: "-100%", opacity: 0 }}
-      transition={{ duration: 2 }}
-      className="splash SplashScreen1-div"
-    >
-      <figure>
-        <img src="./Images/Logo.png" alt="logo" />
-      </figure>
-    </motion.div>
+    <AnimatePresence>
+      {!startExit && (
+        <motion.section
+          initial={{ x: 0, opacity: 1 }}
+          exit={{ x: "-100%", opacity: 0.5 }}
+          transition={{ duration: 3, ease: "easeInOut" }}
+          className="SplashScreen1-sec"
+        >
+          <figure>
+            <img src="./Images/Logo.png" alt="logo" />
+          </figure>
+        </motion.section>
+      )}
+    </AnimatePresence>
   );
 };
 
