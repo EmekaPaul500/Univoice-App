@@ -5,7 +5,6 @@ import { useEffect, useRef, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import Message from "../../../SmallComponents/Message/Message";
 import Loading from "../../../SmallComponents/Loading/Loading";
-
 import axios from "axios";
 
 const ResetPassword2 = () => {
@@ -41,11 +40,6 @@ const ResetPassword2 = () => {
     if (value && index < length - 1) {
       inputs.current[index + 1].focus();
     }
-
-    // const otp = inputs.current.map((input) => input.value).join("");
-    // if (otp.length === length && !otp.includes("")) {
-    //   console.log("Complete OTP:", otp);
-    // }
   };
 
   const handleKeyDown = (e, index) => {
@@ -54,7 +48,7 @@ const ResetPassword2 = () => {
     }
   };
 
-  const [time, setTime] = useState(60);
+  const [time, setTime] = useState(59);
   const [phase, setPhase] = useState(1);
   const [enableLink, setEnableLink] = useState(false);
 
@@ -83,9 +77,7 @@ const ResetPassword2 = () => {
   const Code = digits.join("");
 
   const location = useLocation();
-
   const incomingEmail = location.state?.email;
-  const incomingRes = location.state?.res;
 
   useEffect(() => {
     if (incomingEmail) {
@@ -119,12 +111,11 @@ const ResetPassword2 = () => {
       navigate("/resetPassword3", {
         state: { email: email, response: res.data },
       });
-      console.log(res.data);
     } catch (err) {
       if (!err.response) {
         // No response from server = likely network error
-
-        setMsg("Please check your network.");
+        // setMsg("Please check your network.");
+        console.log(err);
       } else {
         // Backend responded with error (like 400, 500)
         // setLoading(false);
@@ -171,85 +162,86 @@ const ResetPassword2 = () => {
   };
 
   return (
-    <main className="resetPassword-main">
-      {/* <Message
+    email && (
+      <main className="resetPassword-main">
+        {/* <Message
         message={incomingRes.message}
         imgMessage="check"
         imgClassname="check"
       /> */}
-      {showMessage && !loading && (
-        <Message
-          key={messageKey}
-          message={msg}
-          imgMessage="cancel"
-          imgClassname="cancel"
-        />
-      )}
-      {loading && <Loading />}
-      <Form action="/login">
-        <button className="arrow-left-btn">
-          <img src="./Images/arrow-left.png" alt="arrow-left" />
-        </button>
-      </Form>
-
-      <div className="logo1">
-        <LazyLoadImage
-          src="./Images/Logo1.png"
-          alt="Logo1"
-          effect="blur"
-          wrapperProps={{ style: { transitionDelay: "1s" } }}
-          placeholderSrc="People1 logo"
-        />
-      </div>
-      <section className="resetPassword2-first-sec">
-        <div>
-          <h2>Check your Mail</h2>
-          <p>
-            A one-time password (OTP) has been sent to your registered email
-            address. Enter the code here to complete verification.
-          </p>
-        </div>
-      </section>
-      <Form>
-        <div className="resetPassword2-input-div">
-          {Array.from({ length }).map((_, index) => (
-            <input
-              key={index}
-              type="tel"
-              inputMode="numeric"
-              maxLength={1}
-              ref={(el) => (inputs.current[index] = el)}
-              onChange={(e) => handleChange(e, index)}
-              onKeyDown={(e) => handleKeyDown(e, index)}
-              className="resetPassword2-input"
-            />
-          ))}
-        </div>
-      </Form>
-      <section className="resetPassword2-last-sec">
-        <div>
-          <Form onSubmit={resendBtnSummit}>
-            <button
-              className={
-                enableLink
-                  ? `resetPassword2-btn-a-enabled`
-                  : `resetPassword2-btn-a-disabled`
-              }
-            >
-              Resend
-            </button>
-          </Form>
-          {/* <button>Resend</button> */}
-          <small>{phase === 2 ? time : 20} secs</small>
-        </div>
-        <small>{phase === 1 ? formattedTime(time) : "0:00"}</small>
-      </section>
-      <div className="resetPassword2-btn-div">
-        <Form onSubmit={verifyFunc}>
-          <button className="resetPassword2-btn">Verify</button>
+        {showMessage && !loading && (
+          <Message
+            key={messageKey}
+            message={msg}
+            imgMessage="cancel"
+            imgClassname="cancel"
+          />
+        )}
+        {loading && <Loading />}
+        <Form action="/login">
+          <button className="arrow-left-btn">
+            <img src="./Images/arrow-left.png" alt="arrow-left" />
+          </button>
         </Form>
-      </div>
-    </main>
+
+        <div className="logo1">
+          <LazyLoadImage
+            src="./Images/Logo1.png"
+            alt="Logo1"
+            effect="blur"
+            wrapperProps={{ style: { transitionDelay: "1s" } }}
+            placeholderSrc="People1 logo"
+          />
+        </div>
+        <section className="resetPassword2-first-sec">
+          <div>
+            <h2>Check your Mail</h2>
+            <p>
+              A one-time password (OTP) has been sent to your registered email
+              address. Enter the code here to complete verification.
+            </p>
+          </div>
+        </section>
+        <Form>
+          <div className="resetPassword2-input-div">
+            {Array.from({ length }).map((_, index) => (
+              <input
+                key={index}
+                type="tel"
+                inputMode="numeric"
+                maxLength={1}
+                ref={(el) => (inputs.current[index] = el)}
+                onChange={(e) => handleChange(e, index)}
+                onKeyDown={(e) => handleKeyDown(e, index)}
+                className="resetPassword2-input"
+              />
+            ))}
+          </div>
+        </Form>
+        <section className="resetPassword2-last-sec">
+          <div>
+            <Form onSubmit={resendBtnSummit}>
+              <button
+                className={
+                  enableLink
+                    ? "resetPassword2-btn-a-enabled"
+                    : "resetPassword2-btn-a-disabled"
+                }
+              >
+                Resend
+              </button>
+            </Form>
+            <small>{phase === 2 ? time : 20} secs</small>
+          </div>
+          <small>{phase === 1 ? formattedTime(time) : "0:00"}</small>
+        </section>
+        <div className="resetPassword2-btn-div">
+          <Form onSubmit={verifyFunc}>
+            <button className="resetPassword2-btn">Verify</button>
+          </Form>
+        </div>
+      </main>
+    )
   );
 };
 

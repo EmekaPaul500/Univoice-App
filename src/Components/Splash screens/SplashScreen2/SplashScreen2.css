@@ -7,10 +7,12 @@
   width: 90%;
   padding-block: 1rem;
   text-align: center;
+  /* height: 100vh; */
 }
 
 .SplashScreen2-div h1 {
   font-size: clamp(1.5rem, 5vw, 3rem);
+  margin-top: 3rem;
 }
 
 .SplashScreen2-p {
@@ -24,7 +26,7 @@
   width: 60px;
   height: 60px;
   border-radius: 100%;
-  margin-top: auto;
+  margin-top: 3rem;
 }
 
 .SplashScreen2-button-div:active {

@@ -7,10 +7,13 @@ import Login from "./Components/Login/Login";
 import SignUp from "./Components/Sign Up/SignUp";
 import Home from "./Components/Home/Home";
 import SummitComplaint from "./Components/SummitComplaint/SummitComplaint";
+import ComplaintDetails from "./Components/ComplaintDetails/ComplaintDetails";
 import ResetPassword1 from "./Components/ResetPassword/ResetPassword1/ResetPassword1";
 import ResetPassword2 from "./Components/ResetPassword/ResetPassword2/ResetPassword2";
 import ResetPassword3 from "./Components/ResetPassword/ResetPassword3/ResetPassword3";
 import ResetPassword4 from "./Components/ResetPassword/ResetPassword4/ResetPassword4";
+import User from "./SmallComponents/User/User";
+import Confirm from "./SmallComponents/Confirm/Confirm";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -48,6 +51,11 @@ function App() {
       element: <SummitComplaint />,
     },
     {
+      path: "/complaintDetails",
+      element: <ComplaintDetails />,
+      errorElement: <Login />,
+    },
+    {
       path: "/resetPassword1",
       element: <ResetPassword1 />,
     },
@@ -63,6 +71,15 @@ function App() {
     {
       path: "/resetPassword4",
       element: <ResetPassword4 />,
+    },
+    {
+      path: "/user",
+      element: <User />,
+    },
+
+    {
+      path: "/confirm",
+      element: <Confirm />,
     },
   ]);
   return (

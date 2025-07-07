@@ -7,6 +7,10 @@
   box-shadow: 3px 3px 10px #8f8f8f;
 }
 
+.complaint-sec:active {
+  transform: scale(0.98);
+}
+
 .complaint-sec-div {
   display: flex;
   justify-content: center;

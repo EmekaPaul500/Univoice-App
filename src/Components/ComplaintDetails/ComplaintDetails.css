@@ -1,0 +1,82 @@
+.complaint-details-main {
+  padding-block: 1rem;
+}
+
+.complaint-details-main h2 {
+  text-align: center;
+  color: #171717;
+  margin-top: 4rem;
+}
+
+.complaint-details-main h4 {
+  color: #171717;
+}
+
+.complaint-details-status-div {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+
+.complaint-details-status-div p {
+  color: #4caf50;
+}
+
+.complaint-details-sec-1 {
+  margin: 2rem 0;
+}
+
+.complaint-details-sec-1 > div {
+  display: flex;
+  gap: 0.3rem;
+  margin-top: 0.5rem;
+}
+
+.complaint-details-sec-1 p {
+  color: #404040;
+}
+
+.complaint-details-sec-2 {
+  margin: 2rem 0;
+}
+
+.complaint-details-sec-2 h4 {
+  margin-bottom: 1rem;
+}
+
+.complaint-details-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #ffffff;
+  border: 1px solid #008080;
+  border-radius: 12px;
+  min-width: 330px;
+  min-height: 242px;
+}
+
+.complaint-details-div > div {
+  display: block;
+  width: 64px;
+  height: 64px;
+}
+
+.complaint-details-div button {
+  display: flex;
+  margin-top: 0.3rem;
+  color: #000000;
+  border: 0;
+  background: transparent;
+  text-decoration: underline;
+}
+
+.complaint-details-sec-3 {
+  margin-top: 3rem;
+}
+
+.complaint-details-sec-3 h4 {
+  text-align: center;
+  margin-bottom: 2rem;
+}

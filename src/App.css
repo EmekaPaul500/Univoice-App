@@ -8,6 +8,7 @@ body {
   display: block;
   width: 90%;
   margin: 0 auto;
+  margin-block: 1.5rem;
   color: #404040;
 }
 
@@ -18,12 +19,12 @@ body {
 
 figure {
   width: 300px;
-  height: 300px;
+  height: 250px;
 }
 
 .logo1 {
   width: 200px;
-  height: 100px;
+  height: 20px;
 }
 
 img {
@@ -37,7 +38,8 @@ img {
 }
 
 .arrow-left-btn img {
-  width: 36px;
+  width: 30px;
+  height: 30px;
 }
 
 @media (max-width: 800px) {
@@ -57,12 +59,16 @@ img {
     transform: scale(0.98);
   }
 
-  input {
+  input,
+  select,
+  textarea {
     font-family: "Poppins", sans-serif;
     color: #404040;
   }
 
-  input::placeholder {
+  input::placeholder,
+  select::placeholder,
+  textarea::placeholder {
     color: #a1a1a1;
   }
 

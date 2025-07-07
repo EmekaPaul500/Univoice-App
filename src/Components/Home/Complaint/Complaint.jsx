@@ -1,13 +1,40 @@
+import { useState } from "react";
 import "./Complaint.css";
 
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
+import { useNavigate } from "react-router-dom";
 
-const Complaint = () => {
+const Complaint = ({
+  complaintName,
+  department,
+  complaintStatus,
+  complaintTitle,
+  complaintText,
+  complaintDate,
+  complaintImage,
+}) => {
+  // console.log(complaint);
+
+  const navigate = useNavigate();
+
+  const complaintDetails = {
+    complaintName: complaintName,
+    department: department,
+    complaintStatus: complaintStatus,
+    complaintTitle: complaintTitle,
+    complaintText: complaintText,
+    complaintDate: complaintDate,
+    complaintImage: complaintImage,
+  };
+
+  const complaintDetailsPage = () => {
+    navigate("/complaintDetails", { state: complaintDetails });
+  };
+
   return (
-    <section className="complaint-sec">
-      <small className="complaint-status">In progress</small>
-
+    <section className="complaint-sec" onClick={complaintDetailsPage}>
+      <small className="complaint-status">{complaintStatus}</small>
       <div className="complaint-sec-div">
         <div className="complaint-sec-img-div">
           <LazyLoadImage
@@ -20,15 +47,11 @@ const Complaint = () => {
         </div>
 
         <div>
-          <h4>Academic Issues </h4>
-          <p>
-            My exam result for CSC401 is missing on the portal, and I have
-            checked multiple times without seeing it. I need this issue resolved
-            as soon as possible.
-          </p>
+          <h4>{complaintTitle} </h4>
+          <p>{complaintText}</p>
         </div>
       </div>
-      <small className="complaint-date">Date submitted: 24/2/2024</small>
+      <small className="complaint-date">Date submitted: {complaintDate}</small>
     </section>
   );
 };

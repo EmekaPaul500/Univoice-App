@@ -38,15 +38,16 @@ const ResetPassword1 = () => {
       navigate("/resetPassword2", {
         state: { email: emailData.Email, res: res },
       });
+      sessionStorage.setItem("expiryTime", res.expiry_time);
+      console.log(res);
+
       setShowMessage(false);
     } catch (err) {
       if (!err.response) {
         // No response from server = likely network error
-        console.log(err);
         setMsg("Please check your network.");
       } else {
         // Backend responded with error (like 400, 500)
-        console.log(err.response.data.message);
         setLoading(false);
         setMsg(err.response.data.message);
       }

@@ -49,13 +49,11 @@ const Login = () => {
       }
 
       const data = await response.json();
-      console.log(data);
-      const { message, Token } = data;
+      const { message, access_token } = data;
       sessionStorage.setItem("loginMsg", message);
-      sessionStorage.setItem("loginToken", Token);
+      sessionStorage.setItem("loginToken", access_token);
       sessionStorage.setItem("loginAuthSource", "login");
 
-      console.log(Token);
       setMsg(data.message);
       navigate("/home");
       setShowMessage(false);
@@ -111,6 +109,7 @@ const Login = () => {
           <div className="login-input-div">
             <input
               type="email"
+              required
               placeholder="Email"
               onChange={(e) =>
                 setStudentData({ ...StudentData, Email: e.target.value })
@@ -121,6 +120,7 @@ const Login = () => {
 
           <div className="login-input-div-password">
             <input
+              required
               type={eye ? "password" : "text"}
               placeholder="Password"
               onChange={(e) =>

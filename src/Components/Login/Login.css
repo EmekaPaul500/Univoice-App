@@ -4,6 +4,10 @@
   padding-block: 1rem;
 }
 
+.login-main h1 {
+  margin: 1rem 0;
+}
+
 .login-section {
   text-align: center;
   padding-block: 2rem;

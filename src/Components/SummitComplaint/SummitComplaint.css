@@ -4,7 +4,7 @@
 
 .summit-complaint-first-sec {
   position: static;
-  width: 90%;
+  /* width: 90%; */
 }
 
 .summit-complaint-first-sec > div {
@@ -46,6 +46,7 @@
   background-color: #e0e0e0;
   width: 100%;
   margin-top: 1rem;
+  background-position: right 10rem center;
 }
 
 .summit-complaint-main textarea {
@@ -65,5 +66,62 @@
   outline: 0;
 }
 
-.summit-complaint-main button {
+.summit-complaint-btn-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.summit-complaint-img-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #ffffff;
+  padding: 1rem;
+  max-width: 398px;
+  border-radius: 8px;
+  margin-top: 1.1rem;
+}
+
+.summit-complaint-img-div span {
+  width: 75px;
+  height: 75px;
+}
+
+.summit-complaint-img-div-btn1 {
+  display: block;
+  text-align: center;
+  background: transparent;
+  border: 0;
+  color: #000000;
+  font-size: 18px;
+  font-weight: 400;
+  text-decoration: underline;
+  margin-top: 0.5rem;
+}
+
+.summit-complaint-img-div-btn2 {
+  padding: 0.8rem;
+  width: 100%;
+  margin-top: 1rem;
+  border-radius: 23px;
+  border: 0;
+  background: #000000;
+  color: #ffffff;
+}
+
+.summit-complaint-btn-div button {
+  display: block;
+  padding: 1rem 2rem;
+  text-align: center;
+  border-radius: 24px;
+  border: 0;
+  background-color: #ff5722;
+  color: #ffffff;
+  font-weight: 700;
+  width: 55%;
+  margin-top: 1.5rem;
+  text-align: center;
 }
