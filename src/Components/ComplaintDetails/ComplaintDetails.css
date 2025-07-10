@@ -57,10 +57,10 @@
   min-height: 242px;
 }
 
-.complaint-details-div > div {
-  display: block;
-  width: 64px;
-  height: 64px;
+.complaint-details-div-div {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .complaint-details-div button {

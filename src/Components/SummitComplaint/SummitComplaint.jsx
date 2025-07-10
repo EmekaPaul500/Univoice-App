@@ -2,16 +2,16 @@ import "./SummitComplaint.css";
 import { Form } from "react-router-dom";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
-import Confirm from "../../SmallComponents/Confirm/Confirm";
 import { useState, useRef, useEffect } from "react";
+import Image from "../../SmallComponents/Image/Image";
+import Confirm from "../../SmallComponents/Confirm/Confirm";
 import Message from "../../SmallComponents/Message/Message";
-import axios from "axios";
 import Loading from "../../SmallComponents/Loading/Loading";
+import axios from "axios";
 
 const SummitComplaint = () => {
   const [token, setToken] = useState(null);
   const [messageKey, setMessageKey] = useState(0);
-
   const [loading, setLoading] = useState(false);
   const [msg, setMsg] = useState("");
   const [msgNum, setMsgNum] = useState(null);
@@ -27,6 +27,9 @@ const SummitComplaint = () => {
     Description: "",
     File_path: [],
   });
+  const [imagePreviews, setImagePreviews] = useState([]);
+
+  console.log(imagePreviews);
 
   useEffect(() => {
     let loginToken = sessionStorage.getItem("loginToken");
@@ -42,13 +45,21 @@ const SummitComplaint = () => {
   }, []);
 
   const fileInputRef = useRef(null);
+
   const handleFileChange = (e) => {
     const selectedFiles = Array.from(e.target.files);
+
+    if (selectedFiles.length + imagePreviews.length > 4) {
+      alert("You can only upload four Images");
+      return;
+    }
 
     setSummitComplaintData({
       ...summitComplaintData,
       File_path: [...summitComplaintData.File_path, ...selectedFiles],
     });
+    const previews = selectedFiles.map((file) => URL.createObjectURL(file));
+    setImagePreviews(previews);
   };
 
   const handleClick = () => {
@@ -80,7 +91,6 @@ const SummitComplaint = () => {
       formData.append("File_path", file);
     });
 
-    console.log(formData);
     try {
       const res = await axios.post(
         "https://student-complaint-system.onrender.com/complaint/submit_complaint",
@@ -92,7 +102,6 @@ const SummitComplaint = () => {
           },
         }
       );
-      console.log(res.data);
       setMsgNum(1);
       setMsg(res.data.message);
     } catch (err) {
@@ -109,6 +118,23 @@ const SummitComplaint = () => {
     } finally {
       setLoading(false);
     }
+  };
+
+  const removeImg = (idx) => {
+    // Remove from File_path
+    const updatedFiles = summitComplaintData.File_path.filter(
+      (_, index) => index !== idx
+    );
+
+    // Remove from imagePreviews
+    const updatedPreviews = imagePreviews.filter((_, index) => index !== idx);
+
+    setSummitComplaintData({
+      ...summitComplaintData,
+      File_path: updatedFiles,
+    });
+
+    setImagePreviews(updatedPreviews);
   };
 
   return (
@@ -214,24 +240,6 @@ const SummitComplaint = () => {
             <option value="400l">400 Level</option>
           </select>
 
-          {/* <select
-            required
-            onChange={(e) =>
-              setSummitComplaintData({
-                ...summitComplaintData,
-                ComplaintCategory: e.target.value,
-              })
-            }
-          >
-            <option value="" disabled selected hidden>
-              Select Complaint Categories
-            </option>
-            <option value="CBT">CBT</option>
-            <option value="Network">Network</option>
-            <option value="Robbery">Robbery</option>
-            <option value="other">others</option>
-          </select> */}
-
           <input
             type="text"
             placeholder="complaint Title"
@@ -254,36 +262,55 @@ const SummitComplaint = () => {
             }
           ></textarea>
 
+          {/* Summit complaint div */}
+
           <div className="summit-complaint-img-div">
-            <span>
-              <LazyLoadImage
-                src="./Images/img.png"
-                alt="Logo1"
-                effect="blur"
-                wrapperProps={{ style: { transitionDelay: "1s" } }}
-                placeholderSrc="logo1"
-              />
-            </span>
-            <input
-              type="file"
-              accept="image/*"
-              multiple
-              ref={fileInputRef}
-              onChange={handleFileChange}
-              style={{ display: "none" }}
-            />
-            <button
-              onClick={handleClick}
-              className="summit-complaint-img-div-btn1"
-            >
-              Click to upload
-            </button>
-            <button
-              onClick={handleClick}
-              className="summit-complaint-img-div-btn2"
-            >
-              Upload
-            </button>
+            {imagePreviews.length === 0 ? (
+              <>
+                <span>
+                  <LazyLoadImage
+                    src="./Images/img.png"
+                    alt="Logo1"
+                    effect="blur"
+                    wrapperProps={{ style: { transitionDelay: "1s" } }}
+                    placeholderSrc="logo1"
+                  />
+                </span>
+                <input
+                  type="file"
+                  accept="image/*"
+                  multiple
+                  ref={fileInputRef}
+                  onChange={handleFileChange}
+                  style={{ display: "none" }}
+                />
+                <button
+                  onClick={handleClick}
+                  className="summit-complaint-img-div-btn1"
+                >
+                  Click to upload Image
+                </button>
+                <button
+                  onClick={handleClick}
+                  className="summit-complaint-img-div-btn2"
+                >
+                  Upload
+                </button>
+              </>
+            ) : (
+              <div className="summit-complaint-img-div-div">
+                {imagePreviews.map((src, idx) => {
+                  return (
+                    <Image
+                      key={idx}
+                      src={src}
+                      removeImg={() => removeImg(idx)}
+                    />
+                  );
+                })}
+              </div>
+            )}
+            {/* Summit Complaint Image Div */}
           </div>
           <div className="summit-complaint-btn-div">
             <button onClick={() => setViewConfirm(true)}>Submit</button>

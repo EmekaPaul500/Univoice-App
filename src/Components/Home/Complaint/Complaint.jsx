@@ -12,7 +12,8 @@ const Complaint = ({
   complaintTitle,
   complaintText,
   complaintDate,
-  complaintImage,
+  complaintImages,
+  matricNo,
 }) => {
   // console.log(complaint);
 
@@ -25,7 +26,8 @@ const Complaint = ({
     complaintTitle: complaintTitle,
     complaintText: complaintText,
     complaintDate: complaintDate,
-    complaintImage: complaintImage,
+    complaintImages: complaintImages,
+    matricNo: matricNo,
   };
 
   const complaintDetailsPage = () => {

@@ -68,11 +68,11 @@ const Home = () => {
       } catch (err) {
         if (!err.response) {
           // No response from server = likely network error
-          console.log(err);
+          // console.log(err);
         } else {
           // Backend responded with error (like 400, 500)
           // setLoading(false);
-          console.log(err.response?.data);
+          // console.log(err.response?.data);
         }
       } finally {
         setLoading(false);
@@ -103,8 +103,6 @@ const Home = () => {
       complaint.title.toLowerCase().includes(search.toLowerCase()) ||
       complaint.description.toLowerCase().includes(search.toLowerCase())
   );
-
-  console.log(filteredComplaints);
 
   return token ? (
     <main className="home-main">
@@ -150,7 +148,7 @@ const Home = () => {
         </Form>
       </section>
       <section className="home-third-sec">
-        {loading && <p>Loading...</p>}
+        {loading && <Loading />}
 
         {filteredComplaints.length === 0 ? (
           <p>No complaint Found</p>
@@ -167,7 +165,8 @@ const Home = () => {
                 complaintDate={displayComplaintDate(
                   displayComplaint.created_at
                 )}
-                complaintImage={displayComplaint.file_path}
+                complaintImages={displayComplaint.file_path}
+                matricNo={displayComplaint.matric_no}
               />
             );
           })

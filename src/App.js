@@ -22,7 +22,7 @@ function App() {
     {
       path: "/",
       element: <SplashScreen1 />,
-      errorElement: <Error link="/" text="home" p="Not Found" />,
+      errorElement: <Error link="/" text="home" />,
     },
     {
       path: "/splashScreen2",

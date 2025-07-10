@@ -4,8 +4,15 @@ import { Form } from "react-router-dom";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { useLocation } from "react-router-dom";
+import Image from "../../SmallComponents/Image/Image";
+import { useState } from "react";
+import Message from "../../SmallComponents/Message/Message";
 
 const ComplaintDetails = () => {
+  const [viewImages, setViewImages] = useState(true);
+  const [msg, setMsg] = useState(false);
+  const [messageKey, setMessageKey] = useState(0);
+
   const location = useLocation().state;
 
   function formatDate(dateString) {
@@ -36,8 +43,27 @@ const ComplaintDetails = () => {
     return `${getOrdinal(dayNum)} ${monthNames[parseInt(month) - 1]}, ${year}`;
   }
 
+  console.log(location.complaintImages);
+
+  const viewImageFunc = () => {
+    if (location.complaintImages.length === 0) {
+      setMsg(true);
+      setMessageKey((prev) => prev + 1);
+    } else {
+      setViewImages(!viewImages);
+    }
+  };
+
   return (
     <main className="complaint-details-main">
+      {msg && (
+        <Message
+          key={messageKey}
+          imgMessage="cancel"
+          imgClassname="cancel"
+          message="No Images to view"
+        />
+      )}
       <Form action="/home">
         <button className="arrow-left-btn">
           <img src="./Images/arrow-left.png" alt="arrow-left" />
@@ -67,7 +93,7 @@ const ComplaintDetails = () => {
         </div>
         <div>
           <h4>Matric no:</h4>
-          <p>SCI21CSC044</p>
+          <p>{location.matricNo}</p>
         </div>
         <div>
           <h4>Department:</h4>
@@ -88,18 +114,26 @@ const ComplaintDetails = () => {
         <p>{location.complaintText}</p>
       </section>
       <div className="complaint-details-div">
-        <div>
-          <LazyLoadImage
-            src="./Images/img1.png"
-            alt="Image"
-            effect="blur"
-            wrapperProps={{ style: { transitionDelay: "1s" } }}
-            placeholderSrc="Image"
-          />
-        </div>
-        {location.ComplaintImage}
-        <span>
-          <button>Click to view image </button>
+        {viewImages ? (
+          <div>
+            <LazyLoadImage
+              src="./Images/img1.png"
+              alt="Image"
+              effect="blur"
+              wrapperProps={{ style: { transitionDelay: "1s" } }}
+              placeholderSrc="Image"
+            />
+          </div>
+        ) : (
+          <div className="complaint-details-div-div">
+            {Array.isArray(location?.complaintImages) &&
+              location.complaintImages.map((image, idx) => (
+                <Image src={image} key={idx} visible="hidden" />
+              ))}
+          </div>
+        )}
+        <span onClick={viewImageFunc}>
+          <button>{`Click to ${viewImages ? "view" : "close"} image`} </button>
         </span>
       </div>
       <section className="complaint-details-sec-3">

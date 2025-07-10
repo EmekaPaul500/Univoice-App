@@ -80,9 +80,17 @@
   text-align: center;
   background-color: #ffffff;
   padding: 1rem;
-  max-width: 398px;
+  min-width: 288px;
+  min-height: 258px;
   border-radius: 8px;
   margin-top: 1.1rem;
+}
+.summit-complaint-img-div-div {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
 }
 
 .summit-complaint-img-div span {

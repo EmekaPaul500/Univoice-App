@@ -1,0 +1,23 @@
+.image-div {
+  display: flex;
+  flex-direction: row-reverse;
+  position: relative;
+  max-width: 80px;
+  border: 1px solid #008080;
+  border-radius: 6.5px;
+}
+
+.image-div span {
+  align-self: center;
+  justify-self: center;
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  top: 0;
+}
+
+.img {
+  width: 80px;
+  height: 80px;
+  /* max-width: 50%; */
+}
