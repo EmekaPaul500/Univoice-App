@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./SignUp.css";
 import Message from "../../SmallComponents/Message/Message";
 import Loading from "../../SmallComponents/Loading/Loading";
-
+import SelectDepartment from "../../SmallComponents/SelectDepartment/SelectDepartment";
 import { Form, Link } from "react-router-dom";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
@@ -42,6 +42,7 @@ const SignUp = () => {
       studentData.Password
     ) {
       setShowMessage(false);
+      return;
     }
 
     setLoading(true);
@@ -69,6 +70,12 @@ const SignUp = () => {
     } finally {
       setLoading(false);
     }
+  };
+
+  const handleDepartmentChange = (dept) => {
+    console.log(dept);
+
+    setStudentData({ ...studentData, Department: dept });
   };
 
   return (
@@ -130,16 +137,11 @@ const SignUp = () => {
             />
             <small></small>
           </div>
-          <div className="sign-up-input-div">
-            <input
-              type="text"
-              placeholder="Department"
-              onChange={(e) =>
-                setStudentData({ ...studentData, Department: e.target.value })
-              }
-            />
-            <small></small>
-          </div>
+
+          <SelectDepartment
+            onDepartmentChange={handleDepartmentChange}
+            styleSelectDepartment="signUpSelectDepartment"
+          />
 
           <div className="sign-up-input-div">
             <select

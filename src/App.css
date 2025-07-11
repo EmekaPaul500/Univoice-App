@@ -66,6 +66,10 @@ img {
     color: #404040;
   }
 
+  select:disabled {
+    opacity: 0.5;
+  }
+
   input::placeholder,
   select::placeholder,
   textarea::placeholder {

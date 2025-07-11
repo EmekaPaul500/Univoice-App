@@ -7,6 +7,7 @@ import Image from "../../SmallComponents/Image/Image";
 import Confirm from "../../SmallComponents/Confirm/Confirm";
 import Message from "../../SmallComponents/Message/Message";
 import Loading from "../../SmallComponents/Loading/Loading";
+import SelectDepartment from "../../SmallComponents/SelectDepartment/SelectDepartment";
 import axios from "axios";
 
 const SummitComplaint = () => {
@@ -137,6 +138,13 @@ const SummitComplaint = () => {
     setImagePreviews(updatedPreviews);
   };
 
+  const handleDepartmentChange = (dept) => {
+    setSummitComplaintData({
+      ...summitComplaintData,
+      Department: dept,
+    });
+  };
+
   return (
     <main className="summit-complaint-main">
       {viewConfirm && (
@@ -211,15 +219,9 @@ const SummitComplaint = () => {
               })
             }
           />
-          <input
-            type="text"
-            placeholder="Department"
-            onChange={(e) =>
-              setSummitComplaintData({
-                ...summitComplaintData,
-                Department: e.target.value,
-              })
-            }
+          <SelectDepartment
+            onDepartmentChange={handleDepartmentChange}
+            styleSelectDepartment="signUpSelectDepartment"
           />
 
           <select
