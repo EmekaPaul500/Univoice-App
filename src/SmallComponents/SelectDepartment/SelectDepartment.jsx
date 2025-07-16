@@ -73,6 +73,7 @@ const SelectDepartment = ({ onDepartmentChange, styleSelectDepartment }) => {
         value={selectedFaculty}
         onChange={handleFacultyChange}
         className={styleSelectDepartment}
+        required
       >
         <option value="">Select Faculty</option>
         {Object.keys(facultyOptions).map((faculty) => (
@@ -86,6 +87,7 @@ const SelectDepartment = ({ onDepartmentChange, styleSelectDepartment }) => {
         onChange={handleDepartmentChange}
         disabled={!selectedFaculty}
         className={styleSelectDepartment}
+        required
       >
         <option value="">Select Department</option>
         {selectedFaculty &&
