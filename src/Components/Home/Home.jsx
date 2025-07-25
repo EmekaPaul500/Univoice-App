@@ -1,5 +1,5 @@
-import { Form } from "react-router-dom";
 import "./Home.css";
+import { Form } from "react-router-dom";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import Complaint from "./Complaint/Complaint";
@@ -9,10 +9,9 @@ import User from "../../SmallComponents/User/User";
 import Loading from "../../SmallComponents/Loading/Loading";
 // import Login from "../Login/Login";
 import { useNavigate } from "react-router-dom";
-
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { p } from "framer-motion/client";
+import Header from "../../SmallComponents/Header/Header";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -106,10 +105,11 @@ const Home = () => {
 
   return token ? (
     <main className="home-main">
-      {/* {showUser && <User />} */}
+      {showUser && <User closeUser={() => setShowUser(false)} />}
       <Message message={msg} imgMessage="check" imgClassname="check" />
       {/* Home First Sec */}
-      <section className="home-first-sec">
+
+      {/* <section className="home-first-sec">
         <div className="logo1">
           <LazyLoadImage
             src="./Images/Logo1.png"
@@ -119,10 +119,7 @@ const Home = () => {
             placeholderSrc="logo1"
           />
         </div>
-        <div
-          className="home-first-sec-user"
-          onClick={() => setShowUser(!showUser)}
-        >
+        <div className="home-first-sec-user" onClick={() => setShowUser(true)}>
           <LazyLoadImage
             src="./Images/user.png"
             alt="User"
@@ -131,7 +128,9 @@ const Home = () => {
             placeholderSrc="User"
           />
         </div>
-      </section>
+      </section> */}
+
+      <Header visibility="hidden" />
 
       {/* Second sec(Search button sec) */}
       <section className="home-second-sec">
@@ -148,6 +147,7 @@ const Home = () => {
         </Form>
       </section>
       <section className="home-third-sec">
+        <h3>Previous Complaints</h3>
         {loading && <Loading />}
 
         {filteredComplaints.length === 0 ? (

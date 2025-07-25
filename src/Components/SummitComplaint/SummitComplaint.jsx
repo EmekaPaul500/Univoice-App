@@ -9,6 +9,7 @@ import Message from "../../SmallComponents/Message/Message";
 import Loading from "../../SmallComponents/Loading/Loading";
 import SelectDepartment from "../../SmallComponents/SelectDepartment/SelectDepartment";
 import axios from "axios";
+import Header from "../../SmallComponents/Header/Header";
 
 const SummitComplaint = () => {
   const [token, setToken] = useState(null);
@@ -167,36 +168,9 @@ const SummitComplaint = () => {
       )}
 
       {loading && <Loading />}
-      <Form action="/home">
-        <button className="arrow-left-btn">
-          <img src="./Images/arrow-left.png" alt="arrow-left" />
-        </button>
-      </Form>
 
-      <section className="summit-complaint-first-sec">
-        <div>
-          <div className="logo1">
-            <LazyLoadImage
-              src="./Images/Logo1.png"
-              alt="Logo1"
-              effect="blur"
-              wrapperProps={{ style: { transitionDelay: "1s" } }}
-              placeholderSrc="logo1"
-            />
-          </div>
-          <div className="summit-complaint-first-sec-user">
-            <LazyLoadImage
-              src="./Images/user.png"
-              alt="User"
-              effect="blur"
-              wrapperProps={{ style: { transitionDelay: "2s" } }}
-              placeholderSrc="User"
-            />
-          </div>
-        </div>
-        <h2>Submit Complaint </h2>
-      </section>
-
+      <Header />
+      <h2>Submit Complaint </h2>
       <section className="summit-complaint-second-sec">
         <Form>
           <input

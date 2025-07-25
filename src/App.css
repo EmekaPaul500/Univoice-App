@@ -8,8 +8,9 @@ body {
   display: block;
   width: 90%;
   margin: 0 auto;
-  margin-block: 1.5rem;
-  color: #404040;
+  margin-block: 1rem;
+  /* color: #404040; */
+  color: #171717;
 }
 
 * {

@@ -127,15 +127,17 @@ const Login = () => {
                 setStudentData({ ...StudentData, Password: e.target.value })
               }
             />
-            <div className="login-password-div">
-              {/* <small>Wrong Password</small> */}
-              <Link to="/resetPassword1" className="login-forget-password">
-                Forget Password?
-              </Link>
-            </div>
+
             <button onClick={() => setEye(!eye)}>
               <img src={`./Images/${eye ? "view" : "hide"}.png`} alt="" />
             </button>
+          </div>
+
+          <div className="login-password-div">
+            {/* <small>Wrong Password</small> */}
+            <Link to="/resetPassword1" className="login-forget-password">
+              Forget Password?
+            </Link>
           </div>
         </Form>
 

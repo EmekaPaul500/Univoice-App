@@ -1,0 +1,50 @@
+.edit-personal-info-main h2 {
+  text-align: center;
+  margin: 3rem 0;
+  color: #171717;
+}
+
+.edit-personal-info-first-sec > div {
+  margin-top: 1.5rem;
+}
+
+.edit-personal-info-first-sec h4 {
+  margin-bottom: 0.5rem;
+}
+
+.edit-personal-info-input-div {
+  position: relative;
+}
+
+.edit-personal-info-input-div input {
+  padding: 1rem 0.75rem 1rem 3rem;
+  width: 80%;
+  background-color: #d6d6d6;
+  border: 0;
+  border-radius: 4px;
+  color: #404040;
+}
+
+.edit-personal-info-input-div img {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0.8rem 0 0 0.5rem;
+}
+
+.edit-personal-info-form {
+  text-align: center;
+}
+
+.edit-personal-info-form button {
+  padding: 1rem 2rem;
+  border-radius: 24px;
+  border: 0;
+  background-color: #ff5722;
+  color: #ffffff;
+  margin-top: 3rem;
+  font-weight: 700;
+  font-size: 1rem;
+}

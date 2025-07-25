@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "./Error.css";
 
-const Error = ({ p, link, text }) => {
+const Error = ({ p, link = "/login", text }) => {
   return (
     <div className="Error-div">
       <p>{p}</p>

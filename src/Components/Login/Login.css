@@ -28,11 +28,11 @@
 
 .login-input-div-password button {
   position: absolute;
-  top: 20px;
+  top: 0;
   right: 0;
   background: transparent;
   border: 0;
-  margin: 0 1rem;
+  margin: 1.5rem 1rem;
 }
 
 .login-input-div-password button img {

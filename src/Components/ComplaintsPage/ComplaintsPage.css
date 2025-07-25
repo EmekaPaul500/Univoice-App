@@ -1,0 +1,52 @@
+.complaint-page-div-01 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #ffffff;
+  border: 10px solid #008080;
+  width: 25px;
+  height: 25px;
+  border-radius: 16px;
+  position: fixed;
+  z-index: 1000;
+  top: 70%;
+  right: 10%;
+}
+
+.complaint-page-main h2 {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.complaint-page-input-div {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+}
+
+.complaint-page-input-div img {
+  position: absolute;
+  top: 11px;
+  /* margin: 0 0.5rem; */
+  margin-left: 1rem;
+  width: 24px;
+}
+
+.complaint-page-input-div input {
+  width: 80%;
+  padding: 1rem 1.5rem 1rem 3rem;
+  /* background: red; */
+  background: #d6d6d6;
+  border-radius: 32px;
+  border: 0;
+  flex-grow: 1;
+}
+
+.complaint-page-sec {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-block: 3rem;
+}

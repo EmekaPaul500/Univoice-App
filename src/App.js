@@ -14,6 +14,10 @@ import ResetPassword3 from "./Components/ResetPassword/ResetPassword3/ResetPassw
 import ResetPassword4 from "./Components/ResetPassword/ResetPassword4/ResetPassword4";
 import User from "./SmallComponents/User/User";
 import Confirm from "./SmallComponents/Confirm/Confirm";
+import ComplaintsPage from "./Components/ComplaintsPage/ComplaintsPage";
+import UserProfile from "./Components/UserProfile/UserProfile";
+import PersonalInformation from "./Components/PersonalInformation/PersonalInformation";
+import EditPersonalInfo from "./Components/EditPersonalInfo/EditPersonalInfo";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -22,7 +26,7 @@ function App() {
     {
       path: "/",
       element: <SplashScreen1 />,
-      errorElement: <Error link="/" text="home" />,
+      errorElement: <Error link="/login" text="Login" />,
     },
     {
       path: "/splashScreen2",
@@ -80,6 +84,25 @@ function App() {
     {
       path: "/confirm",
       element: <Confirm />,
+    },
+
+    {
+      path: "/complaintsPage",
+      element: <ComplaintsPage />,
+    },
+
+    {
+      path: "/userProfile",
+      element: <UserProfile />,
+    },
+
+    {
+      path: "/personalInfo",
+      element: <PersonalInformation />,
+    },
+    {
+      path: "/editPersonalInfo",
+      element: <EditPersonalInfo />,
     },
   ]);
   return (

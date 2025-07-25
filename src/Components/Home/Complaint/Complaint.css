@@ -13,13 +13,13 @@
 
 .complaint-sec-div {
   display: flex;
-  justify-content: center;
   align-items: center;
   gap: 1em;
 }
 
 .complaint-sec-img-div {
-  width: 250px;
+  min-width: 64px;
+  min-height: 64px;
 }
 
 .complaint-sec p {
@@ -28,6 +28,7 @@
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
   line-clamp: 1;
+  margin-top: 0.5rem;
 }
 
 .complaint-status {
@@ -39,4 +40,5 @@
   /* display: block; */
   margin-left: auto;
   font-weight: bold;
+  margin-top: 1rem;
 }
